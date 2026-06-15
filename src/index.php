@@ -16,6 +16,14 @@ require_once "generator.php";
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
 $dotenv->safeLoad();
 
+// mirror platform env vars (Vercel exposes them via getenv, not $_SERVER) so token checks work
+foreach (["TOKEN", "TOKEN2", "TOKEN3", "TOKEN4", "TOKEN5"] as $envKey) {
+    $envVal = getenv($envKey);
+    if ($envVal !== false && !isset($_SERVER[$envKey])) {
+        $_SERVER[$envKey] = $envVal;
+    }
+}
+
 // if environment variables are not loaded, display error
 if (!isset($_SERVER["TOKEN"])) {
     $message = file_exists(dirname(__DIR__ . "../.env", 1))
