@@ -32,7 +32,7 @@ if (!isset($_SERVER["TOKEN"])) {
     renderOutput($message, 500);
 }
 
-// set cache to refresh once per day (24 hours)
+// set cache to refresh every 30 days
 $cacheSeconds = CACHE_DURATION;
 header("Expires: " . gmdate("D, d M Y H:i:s", time() + $cacheSeconds) . " GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");

@@ -8,6 +8,11 @@
     { "src": "src/demo/*.{png,svg,ico}", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/favicon.ico", "dest": "/src/demo/favicon-32x32.png" },
+    { "src": "/favicon-16x16.png", "dest": "/src/demo/favicon-16x16.png" },
+    { "src": "/favicon-32x32.png", "dest": "/src/demo/favicon-32x32.png" },
+    { "src": "/apple-touch-icon.png", "dest": "/src/demo/apple-touch-icon.png" },
+    { "src": "/icon.svg", "dest": "/src/demo/icon.svg" },
     { "src": "/demo/preview.php", "dest": "/src/demo/preview.php" },
     { "src": "/demo/(css|js)/(.+)", "dest": "/src/demo/$1/$2" },
     { "src": "/demo/([^/]+\\.(?:png|svg|ico))", "dest": "/src/demo/$1" },

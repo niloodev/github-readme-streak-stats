@@ -8,8 +8,8 @@ declare(strict_types=1);
  * Caches stats for 24 hours to avoid repeated API calls
  */
 
-// Default cache duration: 24 hours (in seconds)
-define("CACHE_DURATION", 24 * 60 * 60);
+// Default cache duration: 30 days (in seconds)
+define("CACHE_DURATION", 30 * 24 * 60 * 60);
 // use a writable temp dir (Vercel's filesystem is read-only except /tmp); overridable via CACHE_DIR env var
 define("CACHE_DIR", getenv("CACHE_DIR") ?: sys_get_temp_dir() . "/streak-stats-cache");
 
