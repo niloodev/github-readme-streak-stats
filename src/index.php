@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+// ensure relative requires resolve from this file's directory (Vercel runs with CWD at project root)
+chdir(__DIR__);
+
 // load functions
 require_once "../vendor/autoload.php";
 require_once "stats.php";
