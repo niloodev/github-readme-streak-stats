@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+// ensure relative requires resolve from this dir (Vercel runs with CWD at project root)
+chdir(__DIR__);
+
 require_once "../card.php";
 require_once "../stats.php";
 

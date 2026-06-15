@@ -1,5 +1,8 @@
 <?php
 
+// ensure relative includes/filemtime resolve from this dir (Vercel runs with CWD at project root)
+chdir(__DIR__);
+
 $THEMES = include "../themes.php";
 $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array

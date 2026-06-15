@@ -1,14 +1,17 @@
 {
   "builds": [
-    {
-      "src": "src/index.php",
-      "use": "vercel-php@0.7.3"
-    }
+    { "src": "src/index.php", "use": "vercel-php@0.7.3" },
+    { "src": "src/demo/index.php", "use": "vercel-php@0.7.3" },
+    { "src": "src/demo/preview.php", "use": "vercel-php@0.7.3" },
+    { "src": "src/demo/css/**", "use": "@vercel/static" },
+    { "src": "src/demo/js/**", "use": "@vercel/static" },
+    { "src": "src/demo/*.{png,svg,ico}", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/src/index.php"
-    }
+    { "src": "/demo/preview.php", "dest": "/src/demo/preview.php" },
+    { "src": "/demo/(css|js)/(.+)", "dest": "/src/demo/$1/$2" },
+    { "src": "/demo/([^/]+\\.(?:png|svg|ico))", "dest": "/src/demo/$1" },
+    { "src": "/demo/?", "dest": "/src/demo/index.php" },
+    { "src": "/(.*)", "dest": "/src/index.php" }
   ]
 }
