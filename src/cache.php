@@ -10,7 +10,8 @@ declare(strict_types=1);
 
 // Default cache duration: 24 hours (in seconds)
 define("CACHE_DURATION", 24 * 60 * 60);
-define("CACHE_DIR", __DIR__ . "/../cache");
+// use a writable temp dir (Vercel's filesystem is read-only except /tmp); overridable via CACHE_DIR env var
+define("CACHE_DIR", getenv("CACHE_DIR") ?: sys_get_temp_dir() . "/streak-stats-cache");
 
 /**
  * Generate a cache key for a user's request
